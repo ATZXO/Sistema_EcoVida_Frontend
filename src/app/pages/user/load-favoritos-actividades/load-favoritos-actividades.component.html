@@ -1,0 +1,31 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row mt20" *ngIf = "actividades">
+        <div class="col-md-6" *ngFor = "let e of actividades">
+          <mat-card class="mb20">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+              </div>
+              <mat-card-title>
+                {{ e.titulo }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ e.distrito }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions class="actions-container">
+              <button mat-button [routerLink] = "'/user-dashboard/ver-actividad-favorito-user/'+e.id" color="primary">Ver</button>
+              <button mat-stroked-button class="texto-verde">Verificado</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="col-md-12" *ngIf = "actividades.length == 0">
+          <mat-card>
+            <mat-card-content>
+              <h1>No hay eventos favoritos</h1>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>

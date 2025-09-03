@@ -1,0 +1,174 @@
+.detalle-container {
+    padding: 20px;
+  }
+  
+  .titulo-principal {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitulo {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .action-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .contenido-detalle {
+    padding: 20px 0;
+  }
+  
+  .detalle-seccion {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+  }
+  
+  .seccion-icon {
+    color: #3f51b5;
+    font-size: 2.5rem;
+    margin-top: 5px;
+  }
+  
+  .seccion-titulo {
+    margin: 0 0 0px 0;
+    color: #444;
+  }
+  
+  .seccion-texto {
+    margin: 0;
+    line-height: 1.3;
+    white-space: pre-line;
+    font-size: 1rem;
+  }
+
+  .detalle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+  }
+  
+  .detalle-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .detalle-item h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .detalle-item p {
+    margin: 3;
+    font-size: 0.95rem;
+  }  
+  
+  .detalle-item mat-icon {
+    color: #3f51b5;
+  }
+  
+  .fecha-creacion {
+    color: #3f51b5;
+    font-size: 0.8rem;
+  }
+  
+  .ml-10 {
+    margin-left: 10px;
+  }
+
+  .comentarios-container {
+    margin-top: 20px;
+    padding: 20px;
+  }
+  
+  .comentarios-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .contador-comentarios {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .nuevo-comentario-container {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .comentario-form-field {
+    width: 100%;
+  }
+  
+  .comentarios-lista {
+    margin-top: 20px;
+  }
+  
+  .sin-comentarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    color: #888;
+  }
+  
+  .sin-comentarios mat-icon {
+    font-size: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .comentario-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .comentario-usuario {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+  }
+  
+  .comentario-fecha {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  .comentario-contenido {
+    white-space: pre-line;
+    margin: 0;
+    padding: 5px 0;
+  }
+  
+  .comentario-acciones {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+  
+  .icono-azul {
+    color: #3f51b5; 
+  }

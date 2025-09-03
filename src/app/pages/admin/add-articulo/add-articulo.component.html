@@ -1,0 +1,45 @@
+<mat-card>
+  <h1 class="mt20">Agregar nuevo articulo</h1>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form (ngSubmit)="formSubmit()">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Titulo</mat-label>
+              <input required autofocus type="text" name="titulo" matInput placeholder="Digite el título del articulo"
+                [(ngModel)]="articulo.titulo">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Autor</mat-label>
+              <input required autofocus type="text" name="autor" matInput placeholder="Digite el autor del articulo"
+                [(ngModel)]="articulo.autor">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea name="descripcion" matInput placeholder="Digite la descripción del articulo" rows="8"
+                [(ngModel)]="articulo.descripcion">
+                </textarea>
+            </mat-form-field>
+
+            <div class="w100 mb30">              
+              <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
+                <mat-icon>attach_file</mat-icon> Seleccionar PDF
+              </button>
+            
+              <span class="ml10" *ngIf="archivoSeleccionado">{{ archivoSeleccionado.name }}
+                <mat-icon color="primary" class="ml5" style="color: green;">check_circle</mat-icon>
+              </span>
+            
+              <input #fileInput type="file" (change)="onFileSelected($event)" accept="application/pdf" hidden>
+            </div>                       
+
+            <div class="container text-center mt15">
+              <button mat-raised-button color="primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

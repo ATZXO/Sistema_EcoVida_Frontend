@@ -1,0 +1,17 @@
+.w100{
+    width: 100%;
+  }
+
+  mat-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .container.text-center {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  button[mat-raised-button] {
+    padding: 10px 30px;
+  }

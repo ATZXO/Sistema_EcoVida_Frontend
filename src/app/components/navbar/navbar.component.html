@@ -1,0 +1,188 @@
+<mat-toolbar color="primary">
+  <!--
+  <button
+  *ngIf = "isAdmin" 
+  mat-button 
+  (click)="myDrawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  [routerLink]="'/'" 
+  -->
+
+    <a
+      mat-icon-button
+      (click)="toggleDrawer()"
+      class="example-icon"
+      arial-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu_books</mat-icon>
+    </a>
+    <span>EcoVida</span>
+    <span class="example-spacer"></span>
+    <a
+      *ngIf = "!isLoggedIn"
+      [routerLink]="'/login'"
+      mat-button
+      class = "nav-button"
+      aria-label = "Example icon-button with heart icon"
+    >
+      Iniciar sesión
+    </a>
+    <a
+      *ngIf = "!isLoggedIn"
+      [routerLink]="'/signup'"
+      mat-button
+      class="nav-button"
+      aria-label="Example icon-button with heart icon"
+    >
+      Registrar
+    </a>
+    <a
+      *ngIf = "isLoggedIn"
+      (click) = "logout()"
+      style="margin-right: 50px"
+      mat-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      Cerrar sesión
+    </a>
+    <button
+      *ngIf = "isLoggedIn && user"
+      mat-button
+      style="margin-right: 10px"
+      class="example-icon favorite-icon"
+      routerLink="/admin/profile"
+      aria-label="Example icon-button with heart icon"
+    >
+      {{ user.username }}
+    </button>
+  </mat-toolbar>
+  
+  <mat-drawer-container>
+    <!--Menu deslizable para el rol ADMIN-->
+  <mat-drawer #adminDrawer opened= isAdmin mode="side" position="start" *ngIf="isLoggedIn && isAdmin">
+    <mat-list>
+      <mat-list-item>
+        <button mat-button routerLink="/admin">
+          <mat-icon>home</mat-icon>
+          Inicio
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/profile">
+          <mat-icon>account_circle</mat-icon>
+          Perfil
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/articulos">
+          <mat-icon>menu_book</mat-icon>
+          Articulos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/propuesta-articulo">
+          <mat-icon>assignment_turned_in</mat-icon>
+          Verificar articulos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/actividades">
+          <mat-icon>event</mat-icon>
+          Eventos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/propuesta-actividad">
+          <mat-icon>assignment_turned_in</mat-icon>
+          Verificar evento
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/tiendas">
+          <mat-icon>shopping_cart</mat-icon>
+          Tiendas
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/add-tienda">
+          <mat-icon>add</mat-icon>
+          Agregar tienda
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Salir
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <!-- Menu deslizable para usuario normal-->
+   <mat-drawer #userDrawer opened= isUsuarioNormal mode="side" position="start" *ngIf="isLoggedIn && isUsuarioNormal">
+    <mat-list>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard">
+          <mat-icon>home</mat-icon>
+          Inicio
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/profile-user">
+          <mat-icon>account_circle</mat-icon>
+          Perfil
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/articulos-user">
+          <mat-icon>menu_book</mat-icon>
+          Articulos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/articulos-favorito-user">
+          <mat-icon>bookmark</mat-icon>
+          Articulos favoritos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/actividades-user">
+          <mat-icon>event</mat-icon>
+          Eventos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/actividades-favorito-user">
+          <mat-icon>star</mat-icon>
+         Eventos favoritos
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/tiendas-user">
+          <mat-icon>shopping_cart</mat-icon>
+          Tiendas
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/user-dashboard/tiendas-favorito-user">
+          <mat-icon>favorite</mat-icon>
+          Tiendas favoritas
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Salir
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height: 600px;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

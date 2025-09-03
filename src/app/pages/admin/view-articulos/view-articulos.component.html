@@ -1,0 +1,31 @@
+<mat-card class="mt10" *ngFor="let e of articulos">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <div class="card-title-content">
+      <mat-card-title>
+        {{ e.titulo }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ e.autor }}
+      </mat-card-subtitle>
+    </div>
+    <div class="action-buttons">
+      <button [routerLink] = "'/admin/ver-articulo/'+e.id" mat-icon-button color="primary" matTooltip="Ver detalles">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button [routerLink] = "'/admin/articulo/'+e.id" mat-icon-button color="accent" matTooltip="Editar">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click) = "eliminarArticulo(e.id)" matTooltip="Eliminar">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-actions>        
+      <button mat-stroked-button color="primary" class="ml20">Estado: Activo</button>
+      <button mat-stroked-button color="primary" class="ml20">Verificado</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+

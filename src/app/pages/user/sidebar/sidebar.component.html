@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-action-list>
+      <div mat-subheader class="menu-header">Menu</div>
+      
+      <button mat-list-item routerLink="/user-dashboard" class="sidebar-button">
+        <mat-icon>home</mat-icon>
+        <span>Inicio</span>
+      </button>
+      
+      <button mat-list-item routerLink="/user-dashboard/profile-user" class="sidebar-button">
+        <mat-icon>account_circle</mat-icon>
+        <span>Perfil</span>
+      </button>
+      
+      <button mat-list-item routerLink="/user-dashboard/articulos-user" class="sidebar-button">
+        <mat-icon>menu_book</mat-icon>
+        <span>Articulos</span>
+      </button>
+      
+      <button mat-list-item routerLink="/user-dashboard/articulos-favorito-user" class="sidebar-button">
+        <mat-icon>bookmark</mat-icon>
+        <span>Articulos favoritos</span>
+      </button>
+      
+      <button mat-list-item routerLink="/user-dashboard/actividades-user" class="sidebar-button">
+        <mat-icon>event</mat-icon>
+        <span>Eventos</span>
+      </button>
+      
+      <button mat-list-item routerLink="/user-dashboard/actividades-favorito-user" class="sidebar-button">
+        <mat-icon>star</mat-icon>
+        <span>Eventos favoritos</span>
+      </button>
+  
+      <button mat-list-item routerLink="/user-dashboard/tiendas-user" class="sidebar-button">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Tiendas</span>
+      </button>
+      
+      <button mat-list-item routerLink="/user-dashboard/tiendas-favorito-user" class="sidebar-button">
+        <mat-icon>favorite</mat-icon>
+        <span>Tiendas favoritas</span>
+      </button>
+      
+      <button mat-list-item (click)="logout()" class="sidebar-button">
+        <mat-icon>logout</mat-icon>
+        <span>Salir</span>
+      </button>
+    </mat-action-list>
+  </mat-card>

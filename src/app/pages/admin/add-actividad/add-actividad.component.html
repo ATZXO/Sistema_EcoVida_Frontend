@@ -1,0 +1,62 @@
+<mat-card>
+    <h1 class="mt-4">Agregar nuevo evento</h1>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form (ngSubmit)="guardarActividad()">
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Titulo</mat-label>
+            <input
+              [(ngModel)]="articuloData.titulo"
+              type="text"
+              name="titulo"
+              required
+              placeholder="Digite el titulo"
+              matInput>
+          </mat-form-field>
+          
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <textarea
+              [(ngModel)]="articuloData.descripcion"
+              type="text"
+              name="descripcion"
+              placeholder="Digite la descripción"
+              matInput
+              rows="8"></textarea>
+          </mat-form-field>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="w100" appearance="fill">
+                <mat-label>Lugar</mat-label>
+                <input
+                  [(ngModel)]="articuloData.distrito"
+                  type="text"
+                  name="distrito"
+                  placeholder="Digite el lugar"
+                  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="w100" appearance="fill">
+                <mat-label>Fecha</mat-label>
+                <input 
+                  matInput 
+                  [matDatepicker]="picker" 
+                  placeholder="Seleccione una fecha" 
+                  [(ngModel)]="articuloData.fecha" 
+                  name="fecha">
+                <mat-hint>DD/MM/AAAA</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          
+          <div class="container text-center mb-4">
+            <button mat-raised-button color="primary" class="mt-3 mb-3">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-card>

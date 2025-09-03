@@ -1,0 +1,23 @@
+mat-action-list button {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  button span, button div[mat-line] {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .menu-header {
+    color: #757575; 
+    font-weight: 500;
+  }
+  
+  .sidebar-button {
+    color: black !important; 
+  }

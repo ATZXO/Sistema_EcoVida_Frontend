@@ -1,0 +1,31 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row mt20" *ngIf = "tiendas">
+        <div class="col-md-6" *ngFor = "let e of tiendas">
+          <mat-card class="mb20">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+              </div>
+              <mat-card-title>
+                {{ e.nombre }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ e.lugar }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions class="actions-container">
+              <button mat-button [routerLink] = "'/user-dashboard/ver-tienda-user/'+e.id" color="primary">Ver</button>
+              <button mat-stroked-button class="texto-verde">Verificado</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="col-md-12" *ngIf = "tiendas.length == 0">
+          <mat-card>
+            <mat-card-content>
+              <h1>No hay tiendas disponibles</h1>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>

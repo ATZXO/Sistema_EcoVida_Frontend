@@ -1,0 +1,9 @@
+.main-content {
+  margin-left: 2rem; 
+  margin-right: 2rem; 
+  transition: margin-left 0.3s ease; 
+}
+
+.sidebar-collapsed .main-content {
+  margin-left: 5rem; 
+}

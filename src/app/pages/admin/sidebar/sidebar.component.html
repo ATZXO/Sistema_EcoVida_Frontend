@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-action-list>
+    <div mat-subheader class="menu-header">Menu</div>
+    
+    <button mat-list-item routerLink="/admin" class="sidebar-button">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </button>
+    
+    <button mat-list-item routerLink="/admin/profile" class="sidebar-button">
+      <mat-icon>account_circle</mat-icon>
+      <span>Perfil</span>
+    </button>
+    
+    <button mat-list-item routerLink="/admin/articulos" class="sidebar-button">
+      <mat-icon>menu_book</mat-icon>
+      <span>Articulos</span>
+    </button>
+    
+    <button mat-list-item routerLink="/admin/propuesta-articulo" class="sidebar-button">
+      <mat-icon>assignment_turned_in</mat-icon>
+      <span>Verificar articulos</span>
+    </button>
+    
+    <button mat-list-item routerLink="/admin/actividades" class="sidebar-button">
+      <mat-icon>event</mat-icon>
+      <span>Eventos</span>
+    </button>
+    
+    <button mat-list-item routerLink="/admin/propuesta-actividad" class="sidebar-button">
+      <mat-icon>assignment_turned_in</mat-icon>
+      <span>Verificar evento</span>
+    </button>
+
+    <button mat-list-item routerLink="/admin/tiendas" class="sidebar-button">
+      <mat-icon>shopping_cart</mat-icon>
+      <span>Tiendas</span>
+    </button>
+    
+    <button mat-list-item routerLink="/admin/add-tienda" class="sidebar-button">
+      <mat-icon>add</mat-icon>
+      <span>Agregar tienda</span>
+    </button>
+    
+    <button mat-list-item (click)="logout()" class="sidebar-button">
+      <mat-icon>logout</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-action-list>
+</mat-card>

@@ -1,0 +1,36 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row mt20" *ngIf = "articulos">
+        <div class="col-md-6" *ngFor = "let e of articulos">
+          <mat-card class="mb20">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+              </div>
+              <mat-card-title>
+                {{ e.titulo }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ e.autor }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions class="actions-container">
+              <button mat-button [routerLink] = "'/user-dashboard/ver-articulo-user/'+e.id" color="primary">Ver</button>
+              <button mat-stroked-button class="texto-verde">Verificado</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="col-md-12" *ngIf = "articulos.length == 0">
+          <mat-card>
+            <mat-card-content>
+              <h1>No hay articulos disponibles</h1>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center mt20">
+    <button routerLink="/user-dashboard/add-propuesta-articulo" mat-raised-button color="primary">Proponer articulo</button>
+  </div>
+  

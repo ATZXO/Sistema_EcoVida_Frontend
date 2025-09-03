@@ -1,0 +1,13 @@
+.example-header-image{
+    background-image: url('../../../../assets/tienda.png');
+    background-size: cover;
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .texto-verde {
+    color: green;
+  }

@@ -1,0 +1,79 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.landing-wrapper {
+  background-image: url('../../../assets/fondopantalla.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+   overflow: hidden;
+  justify-content: center;
+}
+
+.overlay {
+  background: rgba(33, 33, 33, 0.6); 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-box {
+  color: #fff;
+  max-width: 600px;
+  padding: 2rem;
+  animation: fadeInUp 1.1s ease-out;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color:  #AED581;
+}
+
+.start-button {
+  font-size: 1rem;
+  padding: 0.7rem 1.4rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-box {
+  padding: 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+  animation: fadeInUp 1s ease-out;
+}
+
+.start-button {
+  margin-top: 1rem;
+  white-space: nowrap;
+}

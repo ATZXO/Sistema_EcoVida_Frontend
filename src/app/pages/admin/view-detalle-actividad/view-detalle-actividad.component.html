@@ -1,0 +1,147 @@
+<!-- Detalles de la Actividad -->
+<mat-card class="detalle-container">
+  <mat-card-header>
+    <mat-card-title class="titulo-principal">{{ actividad?.titulo }}</mat-card-title>
+    <mat-card-subtitle class="subtitulo">Detalles completos del evento</mat-card-subtitle>
+
+    <div class="action-buttons">
+      <button mat-icon-button color="primary" [routerLink]="'/admin/actividad/'+ actividad.id" matTooltip="Editar">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="eliminarActividad(actividad.id)" matTooltip="Eliminar">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-stroked-button color="primary" (click)="volverALista()" class="ml-10">
+        <mat-icon>arrow_back</mat-icon> Volver
+      </button>
+    </div>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content class="contenido-detalle">
+    <div class="detalle-seccion">
+      <mat-icon class="seccion-icon">description</mat-icon>
+      <div>
+        <h3 class="seccion-titulo">Descripción</h3>
+        <p class="seccion-texto">{{ actividad?.descripcion }}</p>
+      </div>
+    </div>
+
+    <div class="detalle-grid">
+      <div class="detalle-item">
+        <mat-icon>location_on</mat-icon>
+        <div>
+          <h4>Lugar</h4>
+          <p>{{ actividad?.distrito }}</p>
+        </div>
+      </div>
+
+      <div class="detalle-item">
+        <mat-icon>event</mat-icon>
+        <div>
+          <h4>Fecha</h4>
+          <p>{{ actividad?.fecha | date:'dd/MM/yyyy' }}</p>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- Tabla de Asistentes -->
+<mat-card class="asistentes-container">
+  <mat-card-header>
+    <mat-card-title class="comentarios-titulo">
+      <mat-icon class="icono-azul">groups</mat-icon>
+      Asistentes <span *ngIf="asistentes?.length">({{asistentes.length}})</span>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <table mat-table [dataSource]="asistentes" class="mat-elevation-z1" *ngIf="asistentes?.length; else noAsistentes">
+
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let asistente"> {{ asistente.usuarios.nombre }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td mat-cell *matCellDef="let asistente"> {{ asistente.usuarios.apellido }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let asistente"> {{ asistente.usuarios.email }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['nombre', 'apellido', 'email']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['nombre', 'apellido', 'email'];"></tr>
+    </table>
+
+    <ng-template #noAsistentes>
+      <p>No hay asistentes registrados.</p>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
+
+<!-- Comentarios -->
+<mat-card class="comentarios-container">
+  <mat-card-header>
+    <mat-card-title class="comentarios-titulo">
+      <mat-icon class="icono-azul">forum</mat-icon>
+      Comentarios <span class="contador-comentarios" *ngIf="comentarios?.length">({{comentarios.length}})</span>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <div class="nuevo-comentario-container">
+    <mat-form-field appearance="outline" class="comentario-form-field">
+      <mat-label>Escribe un comentario</mat-label>
+      <textarea matInput [(ngModel)]="nuevoComentario" rows="3"
+        placeholder="Comparte tu opinión sobre este artículo..."></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="agregarComentario()" [disabled]="!nuevoComentario.trim()">
+      <mat-icon>send</mat-icon> Publicar
+    </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="comentarios-lista">
+    <div *ngIf="!comentarios?.length" class="sin-comentarios">
+      <mat-icon>chat_bubble_outline</mat-icon>
+      <p>Aún no hay comentarios. ¡Sé el primero en comentar!</p>
+    </div>
+
+    <mat-card *ngFor="let comentario of comentarios" class="comentario-item">
+      <div class="comentario-header">
+        <div class="comentario-usuario">
+          <mat-icon>account_circle</mat-icon>
+          <span>{{ comentario.usuario?.username || 'Usuario' }}</span>
+        </div>
+        <span class="comentario-fecha">{{ comentario.fechaCreacion | date:'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+      <p class="comentario-contenido">{{ comentario.contenido }}</p>
+
+      <div class="comentario-acciones">
+        <button mat-icon-button *ngIf="verificarAcciones(comentario)" (click)="editarComentario(comentario)" matTooltip="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="eliminarComentario(comentario.id)" matTooltip="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+
+    <mat-paginator *ngIf="(comentarios?.length || 0) > 5"
+      [length]="totalComentarios"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25]"
+      (page)="cambiarPagina($event)">
+    </mat-paginator>
+  </div>
+</mat-card>

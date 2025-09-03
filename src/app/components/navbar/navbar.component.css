@@ -1,0 +1,8 @@
+.example-spacer{
+    flex: 1 1 auto;
+  }
+
+  .nav-button {
+    margin: 0 8px;
+    white-space: nowrap;
+  }

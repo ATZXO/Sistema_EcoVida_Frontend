@@ -1,0 +1,37 @@
+.example-header-image{
+    background-image: url('../../../../assets/evento.png');
+    background-size: cover;
+  }
+  
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .card-title-content {
+    flex-grow: 1;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: auto; 
+  }
+  
+  .action-buttons .mat-icon-button {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+  }
+  
+  .action-buttons .mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+  
+  mat-card.mt10 [mat-card-avatar].example-header-image {
+    margin-right: 10px; 
+  }

@@ -1,0 +1,30 @@
+<mat-card class="mt10" *ngFor="let e of actividades">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <div class="card-title-content">
+        <mat-card-title>
+          {{ e.titulo }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ e.descripcion }}
+        </mat-card-subtitle>
+      </div>
+      <div class="action-buttons">
+        <button [routerLink] = "'/admin/ver-actividad/'+e.id" mat-icon-button color="primary" matTooltip="Ver detalles">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button [routerLink] = "'/admin/actividad/'+e.id" mat-icon-button color="accent" matTooltip="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click) = "eliminarActividad(e.id)" matTooltip="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions>        
+        <button mat-stroked-button color="primary" class="ml20">Lugar: {{ e.distrito }}</button>
+        <button mat-stroked-button color="primary" class="ml20">Fecha: {{ e.fecha | date:'dd/MM/yyyy' }}</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>

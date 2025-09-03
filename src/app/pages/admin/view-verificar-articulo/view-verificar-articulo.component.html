@@ -1,0 +1,60 @@
+<mat-card class="detalle-container">
+    <mat-card-header>
+      <mat-card-title class="titulo-principal">{{ articulo?.titulo }}</mat-card-title>
+      <mat-card-subtitle class="subtitulo">Detalles completos del articulo</mat-card-subtitle>
+      
+      <div class="action-buttons">
+        <button mat-icon-button color="accent" (click)="verificarArticulo(articulo?.id)" matTooltip="Verificar">
+            <mat-icon>verified</mat-icon> 
+          </button>
+        <button mat-icon-button color="primary" [routerLink] = "'/admin/articulo/'+ articulo.id" matTooltip="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click) = "eliminarArticulo(articulo.id)" matTooltip="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-stroked-button color="primary" (click)= "volverALista()" class="ml-10">
+          <mat-icon>arrow_back</mat-icon> Volver
+        </button>
+      </div>
+    </mat-card-header>
+  
+    <mat-divider></mat-divider>
+  
+    <mat-card-content class="contenido-detalle">
+      <div class="detalle-seccion">
+        <mat-icon class="seccion-icon">description</mat-icon>
+        <div>
+          <h3 class="seccion-titulo">Descripción</h3>
+          <p class="seccion-texto">{{ articulo?.descripcion }}</p>
+        </div>
+      </div>
+  
+      <div class="detalle-grid">
+        <div class="detalle-item">
+          <mat-icon>create</mat-icon>
+          <div>
+            <h4>Autor</h4>
+            <p>{{ articulo?.autor }}</p>
+          </div>
+        </div>
+  
+        <div class="detalle-item">
+          <mat-icon>event</mat-icon>
+          <div>
+            <h4>Fecha</h4>
+            <p>{{ articulo?.fecha | date:'dd/MM/yyyy' }}</p>
+          </div>
+        </div>
+
+        <div class="detalle-seccion mt20" *ngIf="articulo?.rutaPdf">
+          <div>
+            <h3 class="seccion-titulo">Documento PDF</h3>
+            <button mat-raised-button color="primary" (click)="verPdf()">
+              <mat-icon>picture_as_pdf</mat-icon> Ver PDF
+            </button>
+          </div>
+        </div>
+        
+  
+      

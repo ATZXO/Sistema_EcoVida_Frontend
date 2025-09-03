@@ -1,0 +1,51 @@
+<mat-card class="detalle-container">
+    <mat-card-header>
+      <mat-card-title class="titulo-principal">{{ actividad?.titulo }}</mat-card-title>
+      <mat-card-subtitle class="subtitulo">Detalles completos del evento</mat-card-subtitle>
+      
+      <div class="action-buttons">
+        <button mat-icon-button color="accent" (click)="verificarActividad(actividad?.id)" matTooltip="Verificar">
+            <mat-icon>verified</mat-icon> 
+          </button>
+        <button mat-icon-button color="primary" [routerLink] = "'/admin/actividad/'+ actividad.id" matTooltip="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click) = "eliminarActividad(actividad.id)" matTooltip="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-stroked-button color="primary" (click)= "volverALista()" class="ml-10">
+          <mat-icon>arrow_back</mat-icon> Volver
+        </button>
+      </div>
+    </mat-card-header>
+  
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="contenido-detalle">
+        <div class="detalle-seccion">
+          <mat-icon class="seccion-icon">description</mat-icon>
+          <div>
+            <h3 class="seccion-titulo">Descripción</h3>
+            <p class="seccion-texto">{{ actividad?.descripcion }}</p>
+          </div>
+        </div>
+    
+        <div class="detalle-grid">
+          <div class="detalle-item">
+            <mat-icon>location_on</mat-icon>
+            <div>
+              <h4>Lugar</h4>
+              <p>{{ actividad?.distrito }}</p>
+            </div>
+          </div>
+    
+          <div class="detalle-item">
+            <mat-icon>event</mat-icon>
+            <div>
+              <h4>Fecha</h4>
+              <p>{{ actividad?.fecha | date:'dd/MM/yyyy' }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
